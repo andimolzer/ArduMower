@@ -1,10 +1,7 @@
 /*
   Ardumower (www.ardumower.de)
-  Copyright (c) 2013-2015 by Alexander Grau
-  Copyright (c) 2013-2015 by Sven Gennat
-  Copyright (c) 2014 by Maxime Carpentieri    
-  Copyright (c) 2014-2015 by Stefan Manteuffel
-  Copyright (c) 2015 by Uwe Zimprich
+  Copyright (c) 2013-2014 by Alexander Grau
+  Copyright (c) 2013-2014 by Sven Gennat
   
   Private-use only! (you need to ask for a commercial-use)
  
@@ -23,35 +20,42 @@
   
   Private-use only! (you need to ask for a commercial-use)
 
+*/
 
-  Documentation:  http://wiki.ardumower.de
-    
- */
+
+#ifndef __AVR__
+
+// Arduino Due compatibility wrappers , Atmel SAM3X8E ARM Cortex-M3 (Due),  (SAM3X/A series)
+// datasheet:  http://www.atmel.com/images/doc11057.pdf
+
+#ifndef DUE_H
+#define DUE_H
+
+#include <inttypes.h>
 #include <Arduino.h>
-#include <Wire.h>
-//#include <Servo.h>
-#ifdef __AVR__
-  // Arduino Mega
-  #include <EEPROM.h>
-#else 
-  // Arduino Due
-  #include "due.h"
+
+
+// http://forum.arduino.cc/index.php/topic,136500.0.html
+void tone(uint32_t ulPin, uint32_t frequency, int32_t duration = 0);
+void noTone(uint32_t ulPin);
+
+
+// https://github.com/sebnil/DueFlashStorage
+class DueFlash
+{
+  public:
+    DueFlash();
+    byte read(uint32_t address);
+    byte* readAddress(uint32_t address);
+    boolean write(uint32_t address, byte value);
+    boolean write(uint32_t address, byte *data, uint32_t dataLength);    
+};
+
+extern DueFlash EEPROM;
+
+
 #endif
-#include "config.h"
 
 
-// requires: Arduino Mega or Arduino Due
-// NOTE for Arduino Due:  use native USB port for programming and console!
-
-
-void setup()  {     
-  robot.setup();
-} 
-
-void loop()  {     
-  robot.loop();    
-}
-
-
-
+#endif  //#ifndef __AVR__
 

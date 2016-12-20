@@ -1,10 +1,7 @@
 /*
   Ardumower (www.ardumower.de)
-  Copyright (c) 2013-2015 by Alexander Grau
-  Copyright (c) 2013-2015 by Sven Gennat
-  Copyright (c) 2014 by Maxime Carpentieri    
-  Copyright (c) 2014-2015 by Stefan Manteuffel
-  Copyright (c) 2015 by Uwe Zimprich
+  Copyright (c) 2013-2014 by Alexander Grau
+  Copyright (c) 2013-2014 by Sven Gennat
   
   Private-use only! (you need to ask for a commercial-use)
  
@@ -23,35 +20,34 @@
   
   Private-use only! (you need to ask for a commercial-use)
 
+*/
 
-  Documentation:  http://wiki.ardumower.de
-    
- */
+#ifndef MEGA_H
+#define MEGA_H
+
 #include <Arduino.h>
-#include <Wire.h>
-//#include <Servo.h>
-#ifdef __AVR__
-  // Arduino Mega
-  #include <EEPROM.h>
-#else 
-  // Arduino Due
-  #include "due.h"
+#include "robot.h"
+
+#include "drivers.h"
+#include "bt.h"
+
+/*
+  Ardumower robot chassis
+*/
+
+class Mower : public Robot
+{
+  public:
+    Mower();  
+    virtual void setup(void);
+    virtual void resetMotorFault();
+    virtual int readSensor(char type);
+    virtual void setActuator(char type, int value);
+    virtual void configureBluetooth(boolean quick);
+};
+
+
+extern Mower robot;
+
 #endif
-#include "config.h"
-
-
-// requires: Arduino Mega or Arduino Due
-// NOTE for Arduino Due:  use native USB port for programming and console!
-
-
-void setup()  {     
-  robot.setup();
-} 
-
-void loop()  {     
-  robot.loop();    
-}
-
-
-
 

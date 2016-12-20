@@ -47,10 +47,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
-      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\src;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\EEPROM\src;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\EEPROM\src\utility;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\src\utility;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;C:\Users\andreas.moelzer\Documents\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\mega;D:\!Github\ArduMower\ArduMower;C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\mega;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\src;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\EEPROM\src;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\0on1qi2e.vpn\Micro Platforms\default\debuggers\VM_DBG;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\0on1qi2e.vpn\Micro Platforms\default\debuggers;C:\Users\andreas.moelzer\Documents\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\tools\avr/avr/include/;C:\Program Files (x86)\Arduino\hardware\tools\avr//avr/include/avr/;C:\Program Files (x86)\Arduino\hardware\tools\avr/lib\gcc\avr\4.8.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>D:\!Github\ArduMower\ArduMower\__vm\.ArduMower.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <PreprocessorDefinitions>__AVR_ATmega2560__;_VMDEBUG=1;F_CPU=16000000L;ARDUINO=106013;ARDUINO_AVR_MEGA2560;ARDUINO_ARCH_AVR;__cplusplus=201103L;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -80,6 +80,42 @@
     <None Include="ArduMower.ino">
       <FileType>CppCode</FileType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="adcman.h" />
+    <ClInclude Include="bt.h" />
+    <ClInclude Include="config.h" />
+    <ClInclude Include="drivers.h" />
+    <ClInclude Include="due.h" />
+    <ClInclude Include="flash_efc.h" />
+    <ClInclude Include="gps.h" />
+    <ClInclude Include="imu.h" />
+    <ClInclude Include="mega.h" />
+    <ClInclude Include="mini.h" />
+    <ClInclude Include="mower.h" />
+    <ClInclude Include="NewPing.h" />
+    <ClInclude Include="perimeter.h" />
+    <ClInclude Include="pfod.h" />
+    <ClInclude Include="pid.h" />
+    <ClInclude Include="robot.h" />
+    <ClInclude Include="__vm\.ArduMower.vsarduino.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="adcman.cpp" />
+    <ClCompile Include="bt.cpp" />
+    <ClCompile Include="drivers.cpp" />
+    <ClCompile Include="due.cpp" />
+    <ClCompile Include="flash_efc.cpp" />
+    <ClCompile Include="gps.cpp" />
+    <ClCompile Include="imu.cpp" />
+    <ClCompile Include="mega.cpp" />
+    <ClCompile Include="mini.cpp" />
+    <ClCompile Include="mower.cpp" />
+    <ClCompile Include="NewPing.cpp" />
+    <ClCompile Include="perimeter.cpp" />
+    <ClCompile Include="pfod.cpp" />
+    <ClCompile Include="pid.cpp" />
+    <ClCompile Include="robot.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
